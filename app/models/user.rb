@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true
   validates :password, presence: true
   validates :password, confirmation: true
+  validates :password_confirmation, presence: true
 
   def self.authentication(email, password)
     user = find_by_email(email)
@@ -16,6 +17,10 @@ class User < ActiveRecord::Base
     else
       nil
     end
+  end
+
+  def self.search(query)
+    where("name like ? OR email like ?", "%#{query}%", "%#{query}%")
   end
 
   def encrypt_password

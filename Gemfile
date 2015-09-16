@@ -48,4 +48,8 @@ group :development, :test do
   gem 'mail_form'
   gem 'simple_form'
   gem 'will_paginate', '~> 3.0'
+  gem 'paperclip', '~> 4.2'
+  # wysiwyg editor for blog posts
+  gem 'wysiwyg-rails'
+  gem 'font-awesome-rails'
 end
